@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
+import Login from "./components/Login";
 
 
 function App() {
@@ -16,6 +17,9 @@ function App() {
 
         {/* if screen is signup, show signup */}
         {screen === "signup" && <Signup />}
+
+        {/* if screen is login, show login */}
+        {screen === "login" && <Login setScreen={setScreen}/>}
       </div>
     </>
   );

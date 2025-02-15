@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +41,202 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+
+/*  Login Page CSS */
+
+.login-page .wrapper {
+  width: 400px;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.login-page form {
+  display: flex;
+  flex-direction: column;
+}
+.login-page h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.login-page .input-field {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+.login-page .input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+.login-page .input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+}
+.login-page .input-field input:focus ~ label,
+.login-page .input-field input:valid ~ label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+.login-page .forget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0 35px 0;
+  color: #fff;
+}
+.login-page #remember {
+  accent-color: #fff;
+}
+.login-page .forget label {
+  display: flex;
+  align-items: center;
+}
+.login-page .forget label p {
+  margin-left: 8px;
+}
+.login-page .wrapper a {
+  color: #efefef;
+  text-decoration: none;
+}
+.login-page .wrapper a:hover {
+  text-decoration: underline;
+}
+.login-page button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+.login-page button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+.login-page .register {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+
+
+
+/*  Signup page CSS */
+
+.signup-page .wrapper {
+  width: 400px;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.signup-page form {
+  display: flex;
+  flex-direction: column;
+}
+.signup-page h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.signup-page .input-field {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+.signup-page .input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+.signup-page .input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+}
+.signup-page .input-field input:focus ~ label,
+.signup-page .input-field input:valid ~ label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+.signup-page .forget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 25px 0 35px 0;
+  color: #fff;
+}
+.signup-page #remember {
+  accent-color: #fff;
+}
+.signup-page .forget label {
+  display: flex;
+  align-items: center;
+}
+.signup-page .forget label p {
+  margin-left: 8px;
+}
+.signup-page .wrapper a {
+  color: #efefef;
+  text-decoration: none;
+}
+.signup-page .wrapper a:hover {
+  text-decoration: underline;
+}
+.signup-page button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+}
+.signup-page button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+.signup-page .register {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
 }
