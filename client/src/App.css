@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
 
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -45,8 +46,161 @@
 
 
 
-/*  Login Page CSS */
+/* Landing Page CSS */
 
+.landing-page {
+  font-family: 'Courier New', Courier, monospace; /* Geeky font */
+  background-color: #282c34; /* Dark background */
+  color: #61dafb; /* Light blue text */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+.landing-page .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing-page .logout-button {
+  background-color: #ff4757; /* Red color */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.landing-page .logout-button:hover {
+  background-color: #e84118; /* Darker red on hover */
+}
+
+.landing-page .activity-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+}
+
+.landing-page .activity-item {
+  padding: 10px;
+  border: 1px solid #61dafb; /* Light blue border */
+  border-radius: 5px;
+  margin: 5px 0;
+  transition: background-color 0.3s; /* Smooth transition */
+  cursor: pointer;
+}
+
+.landing-page .activity-item:hover {
+  background-color: rgba(97, 218, 251, 0.2); /* Light blue background on hover */
+}
+
+/* Styles for interested activities */
+.landing-page .interested {
+  background-color: rgba(97, 218, 251, 0.1); /* Slightly darker background */
+}
+
+/* Styles for indicating user interest */
+.landing-page .you-interested {
+  color: #28a745; /* Green color for user interest */
+}
+
+/* Add activity button styles */
+.landing-page .add-activity-button {
+  background-color: #1e90ff; /* Bright blue */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.landing-page.add-activity-button:hover {
+  background-color: #1c7ed6; /* Darker blue on hover */
+}
+
+/* Form styles for adding an activity */
+.landing-page .add-activity-form {
+  margin-top: 20px;
+}
+
+/* Input field styles */
+.landing-page .activity-input {
+  width: calc(100% - 20px); /* Full width minus padding */
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #61dafb; /* Light blue border */
+  border-radius: 5px;
+  background-color: #444; /* Dark input background */
+  color: #fff; /* White text */
+}
+
+/* Date picker styles */
+.landing-page .date-picker {
+  width: calc(100% - 20px); /* Full width minus padding */
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #61dafb; /* Light blue border */
+  border-radius: 5px;
+  background-color: #444; /* Dark input background */
+  color: #fff; /* White text */
+}
+
+/* Save and cancel button styles */
+.landing-page .save-button, .cancel-button {
+  background-color: #28a745; /* Green color */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.landing-page .cancel-button {
+  background-color: #ff4757; /* Red color */
+}
+
+.landing-page .save-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.landing-page .cancel-button:hover {
+  background-color: #e84118; /* Darker red on hover */
+}
+
+
+
+/* Login.jsx Page CSS */
+
+.login-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+.login-page body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+}
+.login-page body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/bg-dark.png");
+  background-position: center;
+  background-size: cover;
+}
 .login-page .wrapper {
   width: 400px;
   border-radius: 8px;
@@ -89,8 +243,8 @@
   font-size: 16px;
   color: #fff;
 }
-.login-page .input-field input:focus ~ label,
-.login-page .input-field input:valid ~ label {
+.login-page .input-field input:focus~label,
+.login-page .input-field input:valid~label {
   font-size: 0.8rem;
   top: 10px;
   transform: translateY(-120%);
@@ -103,7 +257,7 @@
   color: #fff;
 }
 .login-page #remember {
-  accent-color: #fff;
+  accent-color: #ffffff;
 }
 .login-page .forget label {
   display: flex;
@@ -131,11 +285,6 @@
   border: 2px solid transparent;
   transition: 0.3s ease;
 }
-.login-page button:hover {
-  color: #fff;
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.15);
-}
 .login-page .register {
   text-align: center;
   margin-top: 30px;
@@ -144,7 +293,34 @@
 
 
 
-/*  Signup page CSS */
+/* Signup.jsx Page CSS */
+
+.signup-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.signup-page body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 10px;
+}
+
+/* Signup.jsx Page CSS */
+.signup-page body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/bg-dark.png"), #000; /* Use bg-dark.png here */
+  background-position: center;
+  background-size: cover;
+}
 
 .signup-page .wrapper {
   width: 400px;
@@ -155,20 +331,24 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
+
 .signup-page form {
   display: flex;
   flex-direction: column;
 }
+
 .signup-page h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   color: #fff;
 }
+
 .signup-page .input-field {
   position: relative;
   border-bottom: 2px solid #ccc;
   margin: 15px 0;
 }
+
 .signup-page .input-field label {
   position: absolute;
   top: 50%;
@@ -179,6 +359,7 @@
   pointer-events: none;
   transition: 0.15s ease;
 }
+
 .signup-page .input-field input {
   width: 100%;
   height: 40px;
@@ -188,12 +369,20 @@
   font-size: 16px;
   color: #fff;
 }
-.signup-page .input-field input:focus ~ label,
-.signup-page .input-field input:valid ~ label {
+
+.signup-page .input-field input:focus~label,
+.signup-page .input-field input:valid~label {
   font-size: 0.8rem;
   top: 10px;
   transform: translateY(-120%);
 }
+
+.signup-page .register {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+
 .signup-page .forget {
   display: flex;
   align-items: center;
@@ -201,23 +390,29 @@
   margin: 25px 0 35px 0;
   color: #fff;
 }
+
 .signup-page #remember {
   accent-color: #fff;
 }
+
 .signup-page .forget label {
   display: flex;
   align-items: center;
 }
+
 .signup-page .forget label p {
   margin-left: 8px;
 }
+
 .signup-page .wrapper a {
   color: #efefef;
   text-decoration: none;
 }
+
 .signup-page .wrapper a:hover {
   text-decoration: underline;
 }
+
 .signup-page button {
   background: #fff;
   color: #000;
@@ -230,13 +425,18 @@
   border: 2px solid transparent;
   transition: 0.3s ease;
 }
-.signup-page button:hover {
-  color: #fff;
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.15);
+
+.signup-page .register p {
+  font-size: 1rem;
 }
-.signup-page .register {
-  text-align: center;
-  margin-top: 30px;
+
+.signup-page .register a {
+  font-size: 1rem;
+  font-weight: 600;
   color: #fff;
 }
+
+.signup-page .register a:hover {
+  text-decoration: underline;
+}
+

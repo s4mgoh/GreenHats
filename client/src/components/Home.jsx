@@ -8,14 +8,15 @@ function Home({setScreen}) {
   const handleLoginClick = () => {
     setScreen("login");
   };
+
   return (
     <div>
-      <h1>Greenhats welcome you!</h1>
+        <h1>Hello World!</h1>
 
-      <button onClick={handleSignupClick}>Sign up</button>
-      <button onClick={handleLoginClick}>Login</button>
-    </div>
-  );
-}
+        <button onClick={handleSignupClick}>Sign up</button>
+        <button onClick={handleLoginClick}>Login</button>
+      </div>
+    );
+  }
 
-export default Home;
+  export default Home;
