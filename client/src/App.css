@@ -112,6 +112,12 @@
   margin: 15px 0;
 }
 
+.add-activity-form {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+
 input[type="text"] {
   position: relative;
   border-bottom: 2px solid #ccc;

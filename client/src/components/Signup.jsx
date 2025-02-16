@@ -17,13 +17,17 @@ function Signup({ setScreen, supabase }) {
       return;
     } else if (password.length < 6) {
       alert("Password must be at least 6 characters long");
+      return;
     } else if (username.length < 3) {
       alert("Username must be at least 3 characters long");
+      return;
     } else if (telegramHandle.length < 3) {
       alert("Telegram handle must be at least 3 characters long");
+      return;
       // tele handle must start with @
     } else if (telegramHandle[0] !== "@") {
       alert("Telegram handle must start with @");
+      return;
     }
 
     try {

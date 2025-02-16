@@ -140,7 +140,7 @@ function Landing({ handleLogout, supabase, user }) {
             {!isAddingActivity ? (
                 <button onClick={() => setIsAddingActivity(true)}>Add Activity</button>
             ) : (
-                <div>
+                <div className="add-activity-form">
                     <input
                         type="text"
                         value={newActivity.name}
