@@ -76,6 +76,12 @@
   color: #fff; /* Set text color to white for better visibility */
 }
 
+.activity-list {
+  display: flex;
+  flex-direction: column;
+    padding: 0px;
+}
+
 .landing-page ul {
   list-style-type: none;
   padding: 0;
@@ -101,6 +107,18 @@
 }
 
 .landing-page .input-field {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+
+input[type="text"] {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+
+.date-picker {
   position: relative;
   border-bottom: 2px solid #ccc;
   margin: 15px 0;
@@ -535,4 +553,5 @@
 .social-icon:hover {
   opacity: 0.8;
 }
+
 

@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
 function Signup({ setScreen, supabase }) {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [telegramHandle, setTelegramHandle] = useState(""); // New state for Telegram handle
+
   const handleHome = () => {
     setScreen("home");
   };
@@ -15,7 +21,10 @@ function Signup({ setScreen, supabase }) {
       alert("Username must be at least 3 characters long");
     } else if (telegramHandle.length < 3) {
       alert("Telegram handle must be at least 3 characters long");
-    } 
+      // tele handle must start with @
+    } else if (telegramHandle[0] !== "@") {
+      alert("Telegram handle must start with @");
+    }
 
     try {
       const { data, error } = await supabase.auth.signUp({
@@ -44,12 +53,6 @@ function Signup({ setScreen, supabase }) {
       alert("An unexpected error occurred."); // Alert general error
     }
   };
-
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [telegramHandle, setTelegramHandle] = useState(""); // New state for Telegram handle
 
   return (
     <div className="signup-page">

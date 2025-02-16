@@ -120,7 +120,7 @@ function Landing({ handleLogout, supabase, user }) {
                     {activities.map((activity) => (
                         <li
                             key={activity.id}
-                            style={{ cursor: "pointer", border: "1px solid gray", padding: "10px", margin: "5px" }}
+                            style={{ cursor: "pointer", border: "1px solid gray", padding: "10px", margin: "5px","list-style": "none" }}
                         >
                             <h3>{activity.activity_type}</h3>
                             <p>Location: {activity.location}</p>
@@ -150,6 +150,7 @@ function Landing({ handleLogout, supabase, user }) {
                         placeholder="Enter activity name"
                     />
                     <DatePicker
+                    className="date-picker"
                         selected={newActivity.datetime}
                         onChange={(date) =>
                             setNewActivity({ ...newActivity, datetime: date })
