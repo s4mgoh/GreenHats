@@ -9,7 +9,13 @@ function Signup({ setScreen, supabase }) {
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
-    }
+    } else if (password.length < 6) {
+      alert("Password must be at least 6 characters long");
+    } else if (username.length < 3) {
+      alert("Username must be at least 3 characters long");
+    } else if (telegramHandle.length < 3) {
+      alert("Telegram handle must be at least 3 characters long");
+    } 
 
     try {
       const { data, error } = await supabase.auth.signUp({
