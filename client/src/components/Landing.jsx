@@ -93,72 +93,80 @@ function Landing({ user, handleLogout, supabase }) {
 
   return (
     <div className="landing-page">
-    <div>
-      <h1>Welcome, {user.user_metadata?.username || user.email}!</h1>
-      <p>You are now logged in.</p>
-      <button onClick={handleLogout}>Logout</button>
+      <div className="wrapper">
+        <h2>Welcome, {user.user_metadata?.username || user.email}!</h2>
+        <p>You are now logged in.</p>
+        <button onClick={handleLogout}>Logout</button>
 
-      <h2>Available Activities:</h2>
-      {activities.length === 0 ? (
-        <p>No activities yet. Add some below!</p>
-      ) : (
-        <ul>
-          {activities.map((activity) => (
-            <li
-              key={activity.id}
-              onClick={() => handleInterest(activity)}
-              style={{ cursor: "pointer" }}
-            >
-              {activity.activity_type} - {activity.location} -{" "}
-              {new Date(activity.datetime).toLocaleString()}
-              {/* include number of interested users */}
-              {activity.interested_users?.length > 0 && (
-                <span> - {activity.interested_users.length} interested</span>
-              )}
-              {/* include if the current user is interested */}
-              {activity.interested_users?.includes(
-                user.user_metadata.username
-              ) && (
-                <span style={{ color: "green" }}> - You're Interested!</span>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
+        <h3>Available Activities:</h3>
+        {activities.length === 0 ? (
+          <p>No activities yet. Add some below!</p>
+        ) : (
+          <ul>
+            {activities.map((activity) => (
+              <li
+                key={activity.id}
+                onClick={() => handleInterest(activity)}
+                style={{ cursor: "pointer" }}
+              >
+                {activity.activity_type} - {activity.location} -{" "}
+                {new Date(activity.datetime).toLocaleString()}
+                {/* include number of interested users */}
+                {activity.interested_users?.length > 0 && (
+                  <span> - {activity.interested_users.length} interested</span>
+                )}
+                {/* include if the current user is interested */}
+                {activity.interested_users?.includes(
+                  user.user_metadata.username
+                ) && (
+                  <span style={{ color: "green" }}> - You're Interested!</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
 
-      {!isAddingActivity ? (
-        <button onClick={() => setIsAddingActivity(true)}>Add Activity</button>
-      ) : (
-        <div>
-          <input
-            type="text"
-            value={newActivity.name}
-            onChange={(e) =>
-              setNewActivity({ ...newActivity, name: e.target.value })
-            }
-            placeholder="Enter activity name"
-          />
-          <DatePicker
-            selected={newActivity.datetime}
-            onChange={(date) =>
-              setNewActivity({ ...newActivity, datetime: date })
-            }
-            showTimeSelect
-            dateFormat="Pp"
-          />
-          <input
-            type="text"
-            value={newActivity.location}
-            onChange={(e) =>
-              setNewActivity({ ...newActivity, location: e.target.value })
-            }
-            placeholder="Enter location"
-          />
-          <button onClick={handleAddActivity}>Save Activity</button>
-          <button onClick={() => setIsAddingActivity(false)}>Cancel</button>
-        </div>
-      )}
-    </div>
+        {!isAddingActivity ? (
+          <button onClick={() => setIsAddingActivity(true)}>Add Activity</button>
+        ) : (
+          <div>
+            <div className="input-field">
+              <input
+                type="text"
+                value={newActivity.name}
+                onChange={(e) =>
+                  setNewActivity({ ...newActivity, name: e.target.value })
+                }
+                required
+              />
+              <label>Activity Name</label>
+            </div>
+            <div className="input-field">
+              <DatePicker
+                selected={newActivity.datetime}
+                onChange={(date) =>
+                  setNewActivity({ ...newActivity, datetime: date })
+                }
+                showTimeSelect
+                dateFormat="Pp"
+              />
+             </div>
+            <div className="input-field">
+              <input
+                type="text"
+                value={newActivity.location}
+                onChange={(e) =>
+                  setNewActivity({ ...newActivity, location: e.target.value })
+                }
+                required
+              />
+              <label>Location</label>
+            </div>
+            <button onClick={handleAddActivity}>Save Activity</button>
+            <button onClick={() => setIsAddingActivity(false)}>Cancel</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

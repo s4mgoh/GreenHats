@@ -45,135 +45,159 @@
 }
 
 
-
 /* Landing Page CSS */
 
+.landing-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
 .landing-page {
-  font-family: 'Courier New', Courier, monospace; /* Geeky font */
-  background-color: #282c34; /* Dark background */
-  color: #61dafb; /* Light blue text */
-  padding: 20px;
+  /*display: flex; REMOVE
+  align-items: center; REMOVE
+  justify-content: center; REMOVE
+  min-height: 100vh; REMOVE */
+  width: 100%;
+  padding: 0 10px;
+  /* Remove background: url("./assets/bg-dark.png"); */
+}
+
+
+.landing-page .wrapper {
+  width: 400px;
   border-radius: 8px;
-  max-width: 800px;
-  margin: auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  padding: 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff; /* Set text color to white for better visibility */
 }
 
-.landing-page .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.landing-page .logout-button {
-  background-color: #ff4757; /* Red color */
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s; /* Smooth transition */
-}
-
-.landing-page .logout-button:hover {
-  background-color: #e84118; /* Darker red on hover */
-}
-
-.landing-page .activity-list {
-  list-style-type: none; /* Remove default list styling */
+.landing-page ul {
+  list-style-type: none;
   padding: 0;
 }
 
-.landing-page .activity-item {
-  padding: 10px;
-  border: 1px solid #61dafb; /* Light blue border */
-  border-radius: 5px;
-  margin: 5px 0;
-  transition: background-color 0.3s; /* Smooth transition */
-  cursor: pointer;
+.landing-page li {
+  margin-bottom: 5px;
 }
 
-.landing-page .activity-item:hover {
-  background-color: rgba(97, 218, 251, 0.2); /* Light blue background on hover */
+
+.landing-page h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-/* Styles for interested activities */
-.landing-page .interested {
-  background-color: rgba(97, 218, 251, 0.1); /* Slightly darker background */
+.landing-page h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-/* Styles for indicating user interest */
-.landing-page .you-interested {
-  color: #28a745; /* Green color for user interest */
+.landing-page p {
+    margin-bottom: 15px;
 }
 
-/* Add activity button styles */
-.landing-page .add-activity-button {
-  background-color: #1e90ff; /* Bright blue */
-  color: white;
+.landing-page .input-field {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+
+.landing-page .input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+.landing-page .input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s; /* Smooth transition */
+  outline: none;
+  font-size: 16px;
+  color: #fff;
 }
 
-.landing-page.add-activity-button:hover {
-  background-color: #1c7ed6; /* Darker blue on hover */
+.landing-page .input-field input:focus~label,
+.landing-page .input-field input:valid~label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
 }
 
-/* Form styles for adding an activity */
-.landing-page .add-activity-form {
-  margin-top: 20px;
-}
-
-/* Input field styles */
-.landing-page .activity-input {
-  width: calc(100% - 20px); /* Full width minus padding */
-  padding: 10px;
-  margin: 5px 0;
-  border: 1px solid #61dafb; /* Light blue border */
-  border-radius: 5px;
-  background-color: #444; /* Dark input background */
-  color: #fff; /* White text */
-}
-
-/* Date picker styles */
-.landing-page .date-picker {
-  width: calc(100% - 20px); /* Full width minus padding */
-  padding: 10px;
-  margin: 5px 0;
-  border: 1px solid #61dafb; /* Light blue border */
-  border-radius: 5px;
-  background-color: #444; /* Dark input background */
-  color: #fff; /* White text */
-}
-
-/* Save and cancel button styles */
-.landing-page .save-button, .cancel-button {
-  background-color: #28a745; /* Green color */
-  color: white;
+.landing-page button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 12px 20px;
   cursor: pointer;
-  margin: 5px;
-  transition: background-color 0.3s; /* Smooth transition */
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  margin-top: 10px; /* Add some space above the buttons */
 }
 
-.landing-page .cancel-button {
-  background-color: #ff4757; /* Red color */
+.landing-page button:hover {
+    background-color: #eee;
 }
 
-.landing-page .save-button:hover {
-  background-color: #218838; /* Darker green on hover */
+/* Style for DatePicker container */
+.landing-page .react-datepicker-wrapper {
+    width: 100%; /* Ensure datepicker takes full width */
 }
 
-.landing-page .cancel-button:hover {
-  background-color: #e84118; /* Darker red on hover */
+/* Style for the DatePicker input field */
+.landing-page .react-datepicker__input-container input {
+    width: 100%; /* Make the input full width */
+    height: 40px; /* Match the height of other input fields */
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    /* Add any other styles to match input fields */
 }
 
+/* Optional: Style the DatePicker calendar itself for better theming */
+.landing-page .react-datepicker {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    border: 1px solid #555;
+}
+
+.landing-page .react-datepicker__header {
+    background-color: #444;
+    color: #fff;
+    border-bottom: 1px solid #555;
+}
+
+.landing-page .react-datepicker__day-name,
+.landing-page .react-datepicker__day,
+.landing-page .react-datepicker__time-name {
+    color: #fff;
+}
+
+.landing-page .react-datepicker__day:hover,
+.landing-page .react-datepicker__month-text:hover,
+.landing-page .react-datepicker__quarter-text:hover,
+.landing-page .react-datepicker__year-text:hover {
+    background-color: #555;
+}
+
+.landing-page .react-datepicker__navigation {
+    border-color: #fff;
+}
 
 
 /* Login.jsx Page CSS */
@@ -257,16 +281,31 @@
   color: #fff;
 }
 .login-page #remember {
+  cursor: pointer;
   accent-color: #ffffff;
 }
 .login-page .forget label {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  color: #fff; /* Ensure the label text color matches */
 }
 .login-page .forget label p {
   margin-left: 8px;
 }
-.login-page .wrapper a {
+.login-page .forget input[type="checkbox"] {
+  accent-color: #ffffff;
+  cursor: pointer; /* Ensure pointer cursor for checkbox */
+}
+.login-page .remember-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* Ensure the label itself is clickable */
+}
+.login-page .remember-label p {
+  margin-left: 8px;
+}
+.login-page .forget a {
   color: #efefef;
   text-decoration: none;
 }
@@ -289,8 +328,12 @@
   text-align: center;
   margin-top: 30px;
   color: #fff;
+  cursor: pointer;
 }
 
+.login-page .register p a {
+  cursor: default;
+}
 
 
 /* Signup.jsx Page CSS */
@@ -381,6 +424,7 @@
   text-align: center;
   margin-top: 30px;
   color: #fff;
+  cursor: pointer;
 }
 
 .signup-page .forget {
@@ -434,9 +478,61 @@
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
+  cursor: default;
 }
 
 .signup-page .register a:hover {
   text-decoration: underline;
+}
+
+
+
+/* Homepage css */
+
+.home-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: fixed; /* Prevent scrolling */
+  top: 0;
+  left: 0;
+}
+
+/* Positioning the social icons container */
+.social-icons-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Styling individual social icons */
+.social-icon {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  width: auto; /* Remove size constraints */
+  height: auto;
+  display: inline-block; /* Ensure it aligns properly */
+  background: none; /* Remove any background */
+  border-radius: 0; /* Remove any rounded encasing */
+  padding: 0;
+}
+
+/* Ensuring only the icons appear */
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Hover effects */
+.social-icon:hover {
+  opacity: 0.8;
 }
 

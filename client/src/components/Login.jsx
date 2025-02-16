@@ -43,85 +43,51 @@
 //       }
 //     } catch (err) {
 //       console.error("Login error:", err);
-//       alert("An unexpected error occurred.");
+//       alert("An unexpected error occurred."); 
 //     }
 //   };
 
 //   render() {
-//     const containerStyle = {
-//       display: "flex",
-//       justifyContent: "center",
-//       alignItems: "center",
-//       height: "100vh",
-//       backgroundColor: "#f0f2f5",
-//     };
-
-//     const formStyle = {
-//       backgroundColor: "white",
-//       padding: "20px",
-//       borderRadius: "8px",
-//       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-//       width: "300px",
-//       textAlign: "center",
-//     };
-
-//     const inputStyle = {
-//       width: "100%",
-//       padding: "10px",
-//       margin: "10px 0",
-//       border: "1px solid #ccc",
-//       borderRadius: "4px",
-//     };
-
-//     const buttonStyle = {
-//       width: "100%",
-//       padding: "10px",
-//       margin: "10px 0",
-//       border: "none",
-//       borderRadius: "4px",
-//       cursor: "pointer",
-//     };
-
-//     const loginButtonStyle = {
-//       ...buttonStyle,
-//       backgroundColor: "#007bff",
-//       color: "white",
-//     };
-
-//     const signupButtonStyle = {
-//       ...buttonStyle,
-//       backgroundColor: "#6c757d",
-//       color: "white",
-//     };
-
 //     return (
-//       <div style={containerStyle}>
-//         <div style={formStyle}>
+//       <div className="login-page">
+//       <div className="wrapper">
+//         <form action="#">
 //           <h2>Login</h2>
-//           <input
-//             type="email"
-//             placeholder="Email"
-//             value={this.state.email}
-//             onChange={(e) => this.setState({ email: e.target.value })}
-//             style={inputStyle}
-//           />
-//           <input
-//             type="password"
-//             placeholder="Password"
-//             value={this.state.password}
-//             onChange={(e) => this.setState({ password: e.target.value })}
-//             style={inputStyle}
-//           />
-//           <button onClick={this.handleLogin} style={loginButtonStyle}>
-//             Login
+//           <div className="input-field">
+//             <input
+//               type="email"
+//               required
+//               value={this.state.email}
+//               onChange={(e) => this.setState({ email: e.target.value })}
+//             />
+//             <label>Enter your email</label>
+//           </div>
+//           <div className="input-field">
+//             <input
+//               type="password"
+//               required
+//               value={this.state.password}
+//               onChange={(e) => this.setState({ password: e.target.value })}
+//             />
+//             <label>Enter your password</label>
+//           </div>
+//           <div className="forget">
+//             <label htmlFor="remember" >
+//               <input type="checkbox" id="remember" />
+//               <p>Remember me</p>
+//             </label>
+//             <a href="#">Forgot password?</a>
+//           </div>
+//           <button type="button" onClick={this.handleLogin}>
+//             Log In
 //           </button>
-//           <button
-//             onClick={() => this.props.setScreen("signup")}
-//             style={signupButtonStyle}
-//           >
-//             Go to Signup
-//           </button>
-//         </div>
+//           <div className="register">
+//             <p>
+//               Don't have an account? <a onClick={() => this.props.setScreen("signup")}>Register</a>
+//             </p>
+//           </div>
+//         </form>
+//       </div>
 //       </div>
 //     );
 //   }
@@ -139,11 +105,12 @@ class Login extends React.Component {
     this.state = {
       email: "",
       password: "",
+      rememberMe: false, // Added state for remember me checkbox
     };
   }
 
   handleLogin = async () => {
-    const { email, password } = this.state;
+    const { email, password, rememberMe } = this.state;
     const { setScreen, setUser, supabase } = this.props;
 
     try {
@@ -176,51 +143,72 @@ class Login extends React.Component {
       }
     } catch (err) {
       console.error("Login error:", err);
-      alert("An unexpected error occurred."); 
+      alert("An unexpected error occurred.");
     }
+  };
+
+  toggleRememberMe = () => {
+    this.setState((prevState) => ({
+      rememberMe: !prevState.rememberMe, // Toggle the rememberMe state
+    }));
   };
 
   render() {
     return (
       <div className="login-page">
-      <div className="wrapper">
-        <form action="#">
-          <h2>Login</h2>
-          <div className="input-field">
-            <input
-              type="email"
-              required
-              value={this.state.email}
-              onChange={(e) => this.setState({ email: e.target.value })}
-            />
-            <label>Enter your email</label>
-          </div>
-          <div className="input-field">
-            <input
-              type="password"
-              required
-              value={this.state.password}
-              onChange={(e) => this.setState({ password: e.target.value })}
-            />
-            <label>Enter your password</label>
-          </div>
-          <div className="forget">
-            <label htmlFor="remember">
-              <input type="checkbox" id="remember" />
-              <p>Remember me</p>
-            </label>
-            <a href="#">Forgot password?</a>
-          </div>
-          <button type="button" onClick={this.handleLogin}>
-            Log In
-          </button>
-          <div className="register">
-            <p>
-              Don't have an account? <a onClick={() => this.props.setScreen("signup")}>Register</a>
-            </p>
-          </div>
-        </form>
-      </div>
+        <div className="wrapper">
+          <form action="#">
+            <h2>Login</h2>
+            <div className="input-field">
+              <input
+                type="email"
+                required
+                value={this.state.email}
+                onChange={(e) => this.setState({ email: e.target.value })}
+              />
+              <label>Enter your email</label>
+            </div>
+            <div className="input-field">
+              <input
+                type="password"
+                required
+                value={this.state.password}
+                onChange={(e) => this.setState({ password: e.target.value })}
+              />
+              <label>Enter your password</label>
+            </div>
+            <div className="forget">
+              <label htmlFor="remember" className="remember-label">
+                <input
+                  type="checkbox"
+                  id="remember"
+                  checked={this.state.rememberMe} // Bind checkbox state
+                  onChange={this.toggleRememberMe} // Toggle state on checkbox change
+                />
+                <p 
+                  style={{ cursor: 'pointer', display: 'inline' }} // Ensure cursor pointer on text
+                >
+                  Remember me
+                </p>
+              </label>
+              <a href="#">Forgot password?</a>
+            </div>
+            <button type="button" onClick={this.handleLogin}>
+              Log In
+            </button>
+            <div className="register">
+              <p>
+                Don't have an account?{" "}
+                <a 
+                  onClick={() => this.props.setScreen("signup")} 
+                  style={{ cursor: 'pointer' }} // Ensure pointer cursor on text
+                >
+                  Register
+                </a>
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
