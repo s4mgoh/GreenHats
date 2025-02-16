@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = "https://qefnupgvpnahqpquyidh.supabase.co";
+const supabaseUrl = "https://krincjmlxlrbfzpgrmif.supabase.co";
 const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFlZm51cGd2cG5haHFwcXV5aWRoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2MTQ0MjUsImV4cCI6MjA1NTE5MDQyNX0.I570v0-o8fUX6N1_o8kh0z5ELeUKiG1cuLnJdY04Gcw";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtyaW5jam1seGxyYmZ6cGdybWlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2NjY1NTIsImV4cCI6MjA1NTI0MjU1Mn0.DoL1o5sNktW2bz9JXca60MB7MlamlJ_r0XLw_AKRu0U";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 import "./App.css";
@@ -17,7 +17,7 @@ function App() {
   const [screen, setScreen] = useState("home");
   const [user, setUser] = useState(null);
 
-  const handleLogout = async () => {5
+  const handleLogout = async () => {
     try {
       const { error } = await supabase.auth.signOut();
 
