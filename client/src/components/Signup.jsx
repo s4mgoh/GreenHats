@@ -4,6 +4,7 @@ function Signup({ setScreen, supabase }) {
   const handleHome = () => {
     setScreen("home");
   };
+
   const handleRegister = async () => {
     if (password !== confirmPassword) {
       alert("Passwords do not match");
@@ -17,6 +18,7 @@ function Signup({ setScreen, supabase }) {
         options: {
           data: {
             username: username,
+            telegram_handle: telegramHandle, // Add Telegram handle here
           },
         },
       });
@@ -30,7 +32,6 @@ function Signup({ setScreen, supabase }) {
         alert(
           "Signup successful! You must verify your email before you can log in."
         );
-        setScreen("login");
       }
     } catch (err) {
       console.error("Signup error:", err);
@@ -42,39 +43,86 @@ function Signup({ setScreen, supabase }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [telegramHandle, setTelegramHandle] = useState(""); // New state for Telegram handle
 
   return (
-    <div>
-      <h1>Greenhats welcome you!</h1>
-      {/* input email, username, password, confirm password with set states*/}
+    <div className="signup-page">
+      <div className="wrapper">
+        <h2>Sign Up</h2>
+        <form>
+          <div className="input-field">
+            <input
+              type="email"
+              required
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label>Email</label>
+          </div>
 
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Confirm Password"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-      />
+          <div className="input-field">
+            <input
+              type="text"
+              required
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <label>Username</label>
+          </div>
 
-      <button onClick={handleRegister}>Register</button>
-      <button onClick={handleHome}>Back</button>
+          <div className="input-field">
+            <input
+              type="password"
+              required
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <label>Password</label>
+          </div>
+
+          <div className="input-field">
+            <input
+              type="password"
+              required
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <label>Confirm Password</label>
+          </div>
+
+          {/* New input field for Telegram handle */}
+          <div className="input-field">
+            <input
+              type="text"
+              placeholder="Telegram Handle"
+              value={telegramHandle}
+              onChange={(e) => setTelegramHandle(e.target.value)}
+            />
+            <label>Telegram Handle</label>
+          </div>
+
+          <button type="button" onClick={handleRegister}>
+            Register
+          </button>
+
+          <div className="register">
+            <p>
+              Already have an account?{" "}
+              <a href="#" onClick={() => setScreen("login")}>
+                Login
+              </a>
+            </p>
+          </div>
+
+          <button type="button" onClick={handleHome}>
+            Back to Home
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
